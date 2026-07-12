@@ -1,0 +1,361 @@
+.order-report-page {
+  height: 100%;
+  min-height: 0;
+  padding: 20px;
+  overflow-y: auto;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(74, 58, 160, 0.08),
+      transparent 35%
+    ),
+    #f4f6fb;
+}
+
+.report-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+
+  padding: 22px;
+
+  border: 1px solid rgba(46, 39, 108, 0.08);
+  border-radius: 24px;
+
+  background: white;
+
+  box-shadow: 0 12px 30px rgba(35, 31, 80, 0.07);
+}
+
+.report-eyebrow {
+  display: block;
+
+  color: var(--orange);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+
+.report-title h2 {
+  margin: 5px 0 0;
+
+  color: var(--primary);
+  font-size: 30px;
+}
+
+.report-title p {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
+.report-toolbar-actions {
+  display: flex;
+  align-items: end;
+  gap: 12px;
+}
+
+.report-date-field label {
+  display: block;
+  margin-bottom: 6px;
+
+  color: #605d70;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.report-date-field input {
+  height: 56px;
+  padding: 0 15px;
+
+  border: 1px solid #dfe3ed;
+  border-radius: 15px;
+  outline: none;
+
+  background: #f8f9fc;
+  color: var(--primary);
+
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.report-date-field input:focus {
+  border-color: var(--orange);
+  box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.13);
+}
+
+.refresh-report-button,
+.cash-up-button {
+  height: 56px;
+  padding: 0 20px;
+
+  border: none;
+  border-radius: 15px;
+
+  color: white;
+  font-size: 16px;
+  font-weight: 900;
+
+  cursor: pointer;
+}
+
+.refresh-report-button {
+  background: linear-gradient(135deg, var(--primary), #5145b4);
+}
+
+.cash-up-button {
+  background: linear-gradient(135deg, var(--green), #3e9e32);
+}
+
+.refresh-report-button:disabled,
+.cash-up-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.report-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+
+  margin-top: 18px;
+}
+
+.report-kpi-card {
+  padding: 20px;
+
+  border: 1px solid #e8ebf2;
+  border-radius: 20px;
+
+  background: white;
+
+  box-shadow: 0 8px 22px rgba(35, 31, 80, 0.06);
+}
+
+.report-kpi-card span {
+  display: block;
+
+  color: #77748b;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.report-kpi-card strong {
+  display: block;
+  margin-top: 7px;
+
+  color: var(--primary);
+  font-size: 25px;
+}
+
+.report-kpi-card.discount strong {
+  color: #d97706;
+}
+
+.report-kpi-card.net strong {
+  color: #15803d;
+}
+
+.report-kpi-card.cash strong {
+  color: #2563eb;
+}
+
+.cashier-report-panel {
+  margin-top: 18px;
+  padding: 22px;
+
+  border: 1px solid rgba(46, 39, 108, 0.08);
+  border-radius: 24px;
+
+  background: white;
+
+  box-shadow: 0 12px 30px rgba(35, 31, 80, 0.07);
+}
+
+.cashier-report-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-bottom: 16px;
+  border-bottom: 1px solid #edf0f6;
+}
+
+.cashier-report-header h3 {
+  margin: 0;
+
+  color: var(--primary);
+  font-size: 23px;
+}
+
+.cashier-report-header p {
+  margin: 5px 0 0;
+  color: var(--muted);
+}
+
+.branch-badge {
+  padding: 9px 14px;
+
+  border-radius: 14px;
+
+  background: #f1effb;
+  color: var(--primary);
+
+  font-weight: 900;
+}
+
+.cashier-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  margin-top: 16px;
+}
+
+.cashier-report-row {
+  display: grid;
+  grid-template-columns: 58px minmax(160px, 1fr) 140px 140px 180px;
+  align-items: center;
+  gap: 14px;
+
+  padding: 13px 15px;
+
+  border: 1px solid #eceef4;
+  border-radius: 17px;
+
+  background: #fbfcfe;
+}
+
+.cashier-report-avatar {
+  display: flex;
+  width: 48px;
+  height: 48px;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: linear-gradient(135deg, var(--primary), #5b4df5);
+
+  color: white;
+  font-size: 21px;
+  font-weight: 900;
+}
+
+.cashier-report-name strong,
+.cashier-payment-mini strong,
+.cashier-net-total strong {
+  display: block;
+  color: #2c2943;
+}
+
+.cashier-report-name span,
+.cashier-payment-mini span,
+.cashier-net-total span {
+  display: block;
+  margin-bottom: 4px;
+
+  color: #858294;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.cashier-payment-mini,
+.cashier-net-total {
+  text-align: right;
+}
+
+.cashier-net-total strong {
+  color: var(--primary);
+  font-size: 18px;
+}
+
+.report-payment-breakdown {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+
+  margin-top: 18px;
+  padding-top: 18px;
+
+  border-top: 1px solid #e8eaf1;
+}
+
+.report-payment-breakdown > div {
+  padding: 12px;
+
+  border-radius: 14px;
+
+  background: #f7f8fc;
+}
+
+.report-payment-breakdown span {
+  display: block;
+
+  color: #77748b;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.report-payment-breakdown strong {
+  display: block;
+  margin-top: 5px;
+
+  color: var(--primary);
+  font-size: 17px;
+}
+
+.overall-report-total {
+  background: var(--primary) !important;
+}
+
+.overall-report-total span,
+.overall-report-total strong {
+  color: white !important;
+}
+
+.report-state {
+  display: flex;
+  min-height: 220px;
+
+  align-items: center;
+  justify-content: center;
+
+  color: #92909f;
+  font-size: 18px;
+}
+
+@media (max-width: 1200px) {
+  .report-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .report-toolbar-actions {
+    flex-wrap: wrap;
+  }
+
+  .report-kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cashier-report-row {
+    grid-template-columns: 55px 1fr 130px 160px;
+  }
+
+  .cashier-payment-mini:first-of-type {
+    display: none;
+  }
+
+  .report-payment-breakdown {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.cash-count-print:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}

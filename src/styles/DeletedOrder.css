@@ -1,0 +1,469 @@
+/* =========================================
+   PERFECT TOUCH POS - DELETED ORDERS
+========================================= */
+
+.deleted-order-page {
+  height: 100%;
+  min-height: 0;
+  padding: 14px;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(74, 58, 160, 0.07),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(239, 68, 68, 0.045),
+      transparent 30%
+    ),
+    #f4f6fb;
+}
+
+.deleted-order-panel {
+  height: 100%;
+  min-height: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 16px;
+
+  border: 1px solid rgba(46, 39, 108, 0.08);
+  border-radius: 22px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 12px 30px rgba(35, 31, 80, 0.07),
+    0 3px 9px rgba(35, 31, 80, 0.035);
+
+  overflow: hidden;
+}
+
+/* Header */
+
+.deleted-order-header {
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+
+  padding-bottom: 13px;
+
+  border-bottom: 1px solid #edf0f6;
+}
+
+.deleted-order-eyebrow {
+  display: block;
+
+  color: var(--danger);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+
+.deleted-order-heading h1 {
+  margin: 4px 0 0;
+
+  color: var(--primary);
+  font-size: 27px;
+  line-height: 1.1;
+}
+
+.deleted-order-heading p {
+  margin: 5px 0 0;
+
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.deleted-order-header-actions {
+  display: flex;
+  align-items: end;
+  gap: 10px;
+
+  flex-shrink: 0;
+}
+
+.deleted-order-date-field label {
+  display: block;
+  margin-bottom: 4px;
+
+  color: #666379;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.deleted-order-date-field input {
+  height: 44px;
+  padding: 0 12px;
+
+  border: 1px solid #dfe3ed;
+  border-radius: 11px;
+  outline: none;
+
+  background: #f8f9fc;
+  color: var(--primary);
+
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.deleted-order-date-field input:focus {
+  border-color: var(--orange);
+  background: #ffffff;
+
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.11);
+}
+
+.deleted-order-refresh {
+  height: 44px;
+  padding: 0 16px;
+
+  border: none;
+  border-radius: 11px;
+
+  background: linear-gradient(135deg, var(--primary), #5548bd);
+
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 900;
+
+  cursor: pointer;
+}
+
+.deleted-order-refresh:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+/* Summary */
+
+.deleted-order-summary {
+  flex-shrink: 0;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+
+  margin-top: 12px;
+}
+
+.deleted-summary-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  min-width: 0;
+  padding: 11px 13px;
+
+  border: 1px solid #e9ebf2;
+  border-radius: 15px;
+
+  background: #f9fafc;
+}
+
+.deleted-summary-icon {
+  display: flex;
+  flex-shrink: 0;
+
+  width: 42px;
+  height: 42px;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background: #efedfa;
+  color: var(--primary);
+
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.deleted-summary-card span {
+  display: block;
+
+  color: #77748b;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.deleted-summary-card strong {
+  display: block;
+  margin-top: 3px;
+
+  color: var(--primary);
+  font-size: 19px;
+  font-weight: 900;
+}
+
+.deleted-summary-card.count {
+  background: #f3f1fb;
+}
+
+.deleted-summary-card.tax {
+  background: #fff7e7;
+}
+
+.deleted-summary-card.tax .deleted-summary-icon,
+.deleted-summary-card.tax strong {
+  color: #c66d00;
+}
+
+.deleted-summary-card.gross {
+  background: #eef5ff;
+}
+
+.deleted-summary-card.gross .deleted-summary-icon,
+.deleted-summary-card.gross strong {
+  color: #2563eb;
+}
+
+.deleted-summary-card.total {
+  border-color: transparent;
+
+  background: linear-gradient(135deg, var(--primary), #5145b4);
+}
+
+.deleted-summary-card.total span,
+.deleted-summary-card.total strong {
+  color: #ffffff;
+}
+
+.deleted-summary-card.total .deleted-summary-icon {
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+}
+
+/* Table */
+
+.deleted-order-table-wrapper {
+  flex: 1;
+  min-height: 0;
+
+  margin-top: 12px;
+
+  overflow: auto;
+
+  border: 1px solid #eceef4;
+  border-radius: 13px;
+
+  background: #ffffff;
+}
+
+.deleted-order-table-wrapper::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.deleted-order-table-wrapper::-webkit-scrollbar-track {
+  background: #f4f5f9;
+}
+
+.deleted-order-table-wrapper::-webkit-scrollbar-thumb {
+  background: #cfd3df;
+  border-radius: 20px;
+}
+
+.deleted-order-table {
+  width: 100%;
+  min-width: 1250px;
+
+  border-collapse: collapse;
+}
+
+.deleted-order-table thead {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+}
+
+.deleted-order-table th {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+
+  padding: 11px 10px;
+
+  border-bottom: 2px solid #e7e9f0;
+
+  background: #f4f5f9;
+  color: #666379;
+
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.35px;
+  text-align: left;
+  text-transform: uppercase;
+
+  white-space: nowrap;
+}
+
+.deleted-order-table td {
+  padding: 10px;
+
+  border-bottom: 1px solid #eceef4;
+
+  color: #343147;
+  font-size: 12px;
+}
+
+.deleted-order-table tbody tr {
+  transition: background 120ms ease;
+}
+
+.deleted-order-table tbody tr:hover {
+  background: #fafbfe;
+}
+
+.deleted-order-table tfoot {
+  position: sticky;
+  bottom: 0;
+  z-index: 3;
+
+  background: #f3f1fb;
+}
+
+.deleted-order-table tfoot td {
+  border-top: 2px solid #dedbea;
+  border-bottom: none;
+
+  color: var(--primary);
+}
+
+.number-column {
+  text-align: right !important;
+  white-space: nowrap;
+}
+
+.deleted-order-number {
+  color: var(--primary);
+  font-size: 13px;
+}
+
+.deleted-order-date-main {
+  display: block;
+
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.deleted-order-table td small {
+  display: block;
+  margin-top: 2px;
+
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.deleted-order-cashier {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.deleted-order-cashier > span {
+  display: flex;
+  flex-shrink: 0;
+
+  width: 30px;
+  height: 30px;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #efedfa;
+  color: var(--primary);
+
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.deleted-order-type {
+  display: inline-flex;
+  padding: 5px 8px;
+
+  border-radius: 10px;
+
+  background: #f1effb;
+  color: var(--primary);
+
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.tax-column {
+  color: #c66d00 !important;
+  font-weight: 800;
+}
+
+.net-column {
+  color: var(--primary) !important;
+  font-weight: 900;
+}
+
+/* Loading and empty states */
+
+.deleted-order-state {
+  display: flex;
+  min-height: 220px;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  color: #92909f;
+  font-size: 16px;
+  text-align: center;
+}
+
+/* Responsive */
+
+@media (max-width: 1100px) {
+  .deleted-order-summary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 750px) {
+  .deleted-order-page {
+    padding: 8px;
+  }
+
+  .deleted-order-panel {
+    padding: 11px;
+  }
+
+  .deleted-order-header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .deleted-order-header-actions {
+    width: 100%;
+  }
+
+  .deleted-order-date-field {
+    flex: 1;
+  }
+
+  .deleted-order-date-field input {
+    width: 100%;
+  }
+
+  .deleted-order-summary {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,25 @@
+:root {
+  --primary: #2d286b;
+  --primary-dark: #1f1b4f;
+  --orange: #f59e0b;
+  --green: #7ac943;
+  --blue: #2563eb;
+  --danger: #ef4444;
+  --bg: #f7f7fb;
+  --white: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}

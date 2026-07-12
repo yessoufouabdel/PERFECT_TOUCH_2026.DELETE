@@ -1,0 +1,177 @@
+/* ThermalReceipt.css */
+
+/* Base */
+.ticket {
+  margin: 0 auto;
+  padding: 10px 12px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 16px;          /* ↑ was 14px */
+  line-height: 1.4;         /* ↑ was 1.3 */
+  color: #000;
+}
+
+/* Width presets (approx.) */
+.ticket.w58 { width: 280px; }
+.ticket.w80 { width: 420px; }
+
+/* Optional header block (unused in JSX, kept for compatibility) */
+.h { text-align: center; margin-bottom: 6px; }
+.h .title { font-size: 28px; font-weight: 600; }
+.h .muted { color: #000; }
+
+/* Meta (shop, date, cashier, etc.) */
+.meta {
+  text-align: center;
+  color: #000;
+  margin: 6px 0 8px;
+  font-size: 16px;          /* ↑ was 18px */
+  font-weight: 600;
+}
+.meta .title {
+  display: block;
+  font-size: 18px;          /* slightly larger line for names */
+  font-weight: 700;
+}
+
+/* Items table */
+.items {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.items th,
+.items td {
+  padding: 4px 0;
+  vertical-align: top;
+  color: #000;
+}
+
+/* Header row */
+.items thead th {
+  border-top: 1px dashed #000;
+  border-bottom: 1px dashed #000;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 0.1px;
+}
+
+.left  { text-align: left; }
+.right { text-align: right; }
+.name  { word-break: break-word; }
+
+/* Slightly larger text for item rows */
+.items td.bigcell {
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+/* Column widths for single-line layout
+   (more room for Item name, but still space for Qty | Price | Total) */
+.items col.col-item  { width: 44%; }
+.items col.col-qty   { width: 14%; }
+.items col.col-price { width: 18%; }
+.items col.col-total { width: 24%; }
+
+/* Keep item names wrapping nicely */
+.items td.name {
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+/* =========================
+   Single-line item layout
+   ========================= */
+
+/* Each item is a single row now */
+.items tr.item-row td {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+/* Numbers (Qty, Price, Total) */
+.items td.num {
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  font-variant-numeric: tabular-nums;  /* monospaced digits for alignment */
+  white-space: nowrap;                 /* keep each number on one line */
+  max-width: 100%;
+}
+
+/* On 58mm specifically, nudge numbers a bit smaller to prevent crowding if needed */
+.ticket.w58 .items td.num {
+  font-size: 15px;
+}
+
+/* Larger gutters to separate Qty | Price | Total (apply to header and item rows)
+   NOTE: columns = 1: Item, 2: Qty, 3: Price, 4: Total
+*/
+.items thead th:nth-child(2),
+.items tr.item-row td:nth-child(2) {   /* Qty column */
+  padding-right: 6px;
+}
+
+.items thead th:nth-child(3),
+.items tr.item-row td:nth-child(3) {   /* Price column */
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+.items thead th:nth-child(4),
+.items tr.item-row td:nth-child(4) {   /* Total column */
+  padding-left: 6px;
+}
+
+/* Totals */
+.rule {
+  border-top: 1px dashed #000;
+  margin: 8px 0;
+}
+
+.totals .row {
+  display: flex;
+  justify-content: space-between;
+  margin: 2px 0;
+  font-weight: 600;
+  font-size: 15px;
+  color: #000;
+}
+
+.totals .row strong {
+  font-weight: 600;
+}
+
+/* Footer */
+.foot {
+  text-align: center;
+  margin-top: 10px;
+  color: #000;
+  font-size: 14px;
+}
+
+.italic { font-style: italic; }
+
+/* Cut line */
+.cutline {
+  margin-top: 10px;
+  text-align: center;
+  color: #000;
+  font-size: 14px;
+}
+
+/* Print */
+@media print {
+  @page {
+    size: auto;
+    margin: 3mm;
+  }
+  body {
+    margin: 0;
+    color: #000;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
