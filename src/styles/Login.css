@@ -395,39 +395,61 @@
   color: var(--muted);
   font-size: 17px;
 }
-
 /* =========================================
-   PASSWORD DOTS
+   PASSWORD INPUT
 ========================================= */
 
-.password-dots {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
+.password-input {
   width: 100%;
-  min-height: 74px;
+  height: 74px;
   margin-bottom: 18px;
   padding: 10px 16px;
 
-  overflow: hidden;
+  box-sizing: border-box;
 
   border: 2px solid var(--border);
   border-radius: 18px;
+  outline: none;
 
   background: #f9fafb;
-
   color: var(--primary);
-  font-size: 34px;
+
+  font-family: inherit;
+  font-size: 30px;
   font-weight: 900;
   letter-spacing: 8px;
-
   text-align: center;
-  white-space: nowrap;
+
+  caret-color: var(--orange);
 
   transition:
     border-color 150ms ease,
+    background 150ms ease,
     box-shadow 150ms ease;
+}
+
+.password-input::placeholder {
+  color: #9895a3;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: normal;
+}
+
+.password-input:hover {
+  border-color: #cfd4e0;
+  background: #ffffff;
+}
+
+.password-input:focus {
+  border-color: var(--orange);
+  background: #ffffff;
+
+  box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.16);
+}
+
+.password-input:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
 }
 
 /* =========================================
@@ -685,9 +707,9 @@
     font-size: 26px;
   }
 
-  .password-dots {
-    min-height: 66px;
-    font-size: 29px;
+  .password-input {
+    height: 66px;
+    font-size: 27px;
   }
 
   .keyboard-row {
@@ -819,9 +841,9 @@
     font-size: 25px;
   }
 
-  .password-dots {
-    min-height: 64px;
-    font-size: 27px;
+  .password-input {
+    height: 64px;
+    font-size: 25px;
   }
 
   .keyboard-row {
@@ -944,13 +966,11 @@
     font-size: 14px;
   }
 
-  .password-dots {
-    min-height: 58px;
-
-    font-size: 24px;
+  .password-input {
+    height: 58px;
+    font-size: 22px;
     letter-spacing: 5px;
   }
-
   .keyboard-row {
     gap: 4px;
   }
@@ -1103,11 +1123,10 @@
     font-size: 14px;
   }
 
-  .password-dots {
-    min-height: 56px;
+  .password-input {
+    height: 56px;
     margin-bottom: 12px;
-
-    font-size: 25px;
+    font-size: 23px;
   }
 
   .touch-keyboard-wrapper {

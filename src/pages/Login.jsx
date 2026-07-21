@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { getCashiers, checkUserLogin } from "../api/userApi";
 import UserTile from "../components/UserTile";
 import AppDialog from "../components/AppDialog";
@@ -12,6 +12,7 @@ function Login({ onLogin }) {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [now, setNow] = useState(new Date());
+  const passwordInputRef = useRef(null);
 
   const [dialog, setDialog] = useState({
     open: false,
@@ -101,6 +102,10 @@ function Login({ onLogin }) {
   const handleSelectUser = (user) => {
     setSelectedUser(user);
     setPassword("");
+
+    requestAnimationFrame(() => {
+      passwordInputRef.current?.focus();
+    });
   };
 
   const handleLogin = async () => {
@@ -236,9 +241,22 @@ function Login({ onLogin }) {
             </div>
           </div>
 
-          <div className="password-dots">
-            {password ? "●".repeat(password.length) : "Enter password"}
-          </div>
+          <input
+            ref={passwordInputRef}
+            className="password-input"
+            type="password"
+            value={password}
+            placeholder="Enter password"
+            autoComplete="current-password"
+            onChange={(event) => setPassword(event.target.value)}
+            onKeyDown={(event) => {
+              if (event.key === "Enter" && !loading) {
+                handleLogin();
+              }
+            }}
+            disabled={loading}
+            aria-label="Password"
+          />
 
           <NumericKeypad
             onKeyPress={(key) => setPassword((prev) => prev + key)}
